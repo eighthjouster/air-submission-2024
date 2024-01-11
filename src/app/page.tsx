@@ -1,28 +1,44 @@
 'use client';
 
 import { useEffect, useState } from "react";
+import Board from "./components/Board";
+import fetchBoards, { BoardType } from "./services/fetchBoards";
 import { fetchAssets } from "./services/fetchAssets";
 
-
-const initialState = {
-  data: '0'
+const initialState: {
+  boards: {
+    list: BoardType[]
+    pagination: any,
+    total: number,
+  }
+} = {
+  boards: {
+    list: [],
+    pagination: {},
+    total: 0,
+  },
 };
 
 export default function Home() {
   const [state, stateState] = useState(initialState);
 
-  const { data: helloMessage } = state;
+  const { boards } = state;
 
   useEffect(() => {
     const doFetch = async () => {
-      const response: string | void = await fetchAssets();
+      const response = await fetchBoards();
       stateState({
         ...state,
-        data: response,
+        boards: response,
       });
     }
     doFetch();
   }, []);
 
-  return <main>Fetch test: { helloMessage }</main>;
+  console.log('boards', boards);//__RP
+  return <main>
+    {boards?.list?.map(board => (
+      <Board key={ board.id } />
+    ))}
+  </main>;
 }
