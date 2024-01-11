@@ -2,6 +2,17 @@
 
 https://rafael-pacheco-air-submission-2024.vercel.app/
 
+### Some post-development notes
+
+#### Pending tasks
+
+These task were not implemented in the exercise, but should be in a real-world application:
+
+- GZipping the requests / responses.
+- Authorization.
+- Handling of custom headers (e.g. `x-air-board-context`.)
+- Api Url in a configutation constant: `https://api.air.inc`
+
 ---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
