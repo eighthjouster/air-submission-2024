@@ -57,7 +57,7 @@ export default function Home() {
     ))}
 
     {assets?.clips?.map(clip => (
-      <Asset key={ clip.id } />
+      <Asset key={ clip.id } id={ clip.id } />
     ))}
 
   </main>;

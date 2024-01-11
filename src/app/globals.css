@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.asset-entry {
+    min-height: 5rem;
+}

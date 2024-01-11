@@ -1,6 +1,9 @@
-const Asset = () => (
+export type AssetPropsType = {
+  id: string,
+}
+const Asset = ({ id }: AssetPropsType) => (
   <>
-    <span>An Asset!</span>
+    <div className="asset-entry">An Asset! { id }</div>
   </>
 );
 

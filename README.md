@@ -14,6 +14,7 @@ These task were not implemented in the exercise, but should be in a real-world a
 - Handling of custom headers (e.g. `x-air-board-context`.)
 - Api Url in a configuration constant: `https://api.air.inc`
 - Better state management. Either use `useReduce()` or the Redux library.
+- Scoped CSS/SCSS styles.
 - Unit / integration / e2e testings.
 
 ---
