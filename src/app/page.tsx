@@ -44,7 +44,6 @@ export default function Home() {
     const doFetchAssets = async () => {
       if (boards?.list.length && (currentlySelectedBoard >= 0)) {
         const response = await fetchAssets();
-        console.log(response);//__RP
         setAssets(response);
       }
     }
@@ -52,16 +51,23 @@ export default function Home() {
   }, [boards]);
 
   return <main>
-    {boards?.list?.map(board => (
-      <Board
-        key={ board.id }
-        {...board}
-      />
-    ))}
+    <span className="collapsible-name">Boards</span>
+    <div className="assets-container">
+      {boards?.list?.map(board => (
+        <Board
+          key={ board.id }
+          {...board}
+        />
+      ))}
+    </div>
 
-    {assets?.clips?.map(clip => (
-      <Asset key={ clip.id } id={ clip.id } />
-    ))}
-
+    <span className="collapsible-name">Assets</span>
+    <div className="assets-container">
+      {assets?.clips?.map(clip => (
+        <Asset
+          key={ clip.id }
+          {...clip} />
+      ))}
+    </div>
   </main>;
 }

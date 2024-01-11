@@ -15,6 +15,10 @@ These task were not implemented in the exercise, but should be in a real-world a
 - Api Url in a configuration constant: `https://api.air.inc`
 - Better state management. Either use `useReduce()` or the Redux library.
 - Scoped CSS/SCSS styles.
+- Make the Asset component media type-aware.
+- Styling to reflect the appearance of the reference application.
+- Click and navigate.
+- Security and resilience.
 - Unit / integration / e2e testings.
 
 ---
