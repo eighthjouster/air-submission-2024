@@ -2,7 +2,7 @@ export type AssetPropsType = {
   ext: string
   assets: {
     image: string
-  }[],
+  },
   importedName: string
 }
 const Asset = ({ ext, assets, importedName }: AssetPropsType) => { 
