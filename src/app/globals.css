@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.board-entry {
+    width: 276px;
+    height: 204px;
+    display: flex;
+    align-items: end;
+}
+
 .asset-entry {
     min-height: 5rem;
+}
+
+.media-thumbnail {
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.board-title {
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+    width: 100%;
+    padding: 0.5rem 1rem;
+}
+
+.board-title:hover {
+    text-decoration: underline;
 }

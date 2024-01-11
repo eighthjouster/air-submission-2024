@@ -53,7 +53,10 @@ export default function Home() {
 
   return <main>
     {boards?.list?.map(board => (
-      <Board key={ board.id } />
+      <Board
+        key={ board.id }
+        {...board}
+      />
     ))}
 
     {assets?.clips?.map(clip => (
