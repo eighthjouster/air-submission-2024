@@ -10,8 +10,11 @@ These task were not implemented in the exercise, but should be in a real-world a
 
 - GZipping the requests / responses.
 - Authorization.
+- Check for network fetching errors.
 - Handling of custom headers (e.g. `x-air-board-context`.)
-- Api Url in a configutation constant: `https://api.air.inc`
+- Api Url in a configuration constant: `https://api.air.inc`
+- Better state management. Either use `useReduce()` or the Redux library.
+- Unit / integration / e2e testings.
 
 ---
 

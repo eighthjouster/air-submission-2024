@@ -2,43 +2,63 @@
 
 import { useEffect, useState } from "react";
 import Board from "./components/Board";
-import fetchBoards, { BoardType } from "./services/fetchBoards";
-import { fetchAssets } from "./services/fetchAssets";
+import fetchBoards, { BoardResponseType, BoardType } from "./services/fetchBoards";
+import { ClipType, fetchAssets } from "./services/fetchAssets";
+import Asset from "./components/Asset";
 
-const initialState: {
-  boards: {
-    list: BoardType[]
-    pagination: any,
-    total: number,
-  }
+const initialBoardState: {
+  list: BoardType[]
+  pagination: any,
+  total: number,
 } = {
-  boards: {
-    list: [],
-    pagination: {},
-    total: 0,
-  },
+  list: [],
+  pagination: {},
+  total: 0,
+};
+
+const initialAssetsState: {
+  total: number
+  clips: ClipType[]
+  pagination: any
+} = {
+  clips: [],
+  pagination: {},
+  total: 0,
 };
 
 export default function Home() {
-  const [state, stateState] = useState(initialState);
-
-  const { boards } = state;
+  const [boards, setBoards] = useState(initialBoardState);
+  const [assets, setAssets] = useState(initialAssetsState);
+  const [currentlySelectedBoard, setCurrentlySelectedBoard] = useState(-1);
 
   useEffect(() => {
-    const doFetch = async () => {
+    const doFetchBoards = async () => {
       const response = await fetchBoards();
-      stateState({
-        ...state,
-        boards: response,
-      });
+      setBoards(response);
+      setCurrentlySelectedBoard(0);
     }
-    doFetch();
+    doFetchBoards();
   }, []);
 
-  console.log('boards', boards);//__RP
+  useEffect(() => {
+    const doFetchAssets = async () => {
+      if (boards?.list.length && (currentlySelectedBoard >= 0)) {
+        const response = await fetchAssets();
+        console.log(response);//__RP
+        setAssets(response);
+      }
+    }
+    doFetchAssets();
+  }, [boards]);
+
   return <main>
     {boards?.list?.map(board => (
       <Board key={ board.id } />
     ))}
+
+    {assets?.clips?.map(clip => (
+      <Asset key={ clip.id } />
+    ))}
+
   </main>;
 }
